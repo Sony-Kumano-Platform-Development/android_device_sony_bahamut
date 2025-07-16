@@ -38,4 +38,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="J9210-user 11 55.2.A.4.332 055002A004033203408384484 release-keys" \
     BuildFingerprint=Sony/J9210/J9210:11/55.2.A.4.332/055002A004033203408384484:user/release-keys \
     DeviceName=J9210 \
-    DeviceProduct=J9210
+    DeviceProduct=J9210 \
+    SystemDevice=J9210 \
+    SystemName=J9210
