@@ -9,6 +9,16 @@ from extract_utils.main import (
     ExtractUtilsModule,
 )
 
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
+
+blob_fixups: blob_fixups_user_type = {
+    'vendor/lib/libcammw.so': blob_fixup()
+         .replace_needed('android.hardware.light-V1-ndk_platform.so', 'android.hardware.light-V1-ndk.so'),
+}  # fmt: skip
+
 namespace_imports = [
     'vendor/sony/sm8150-common',
     'hardware/qcom-caf/sm8150',
@@ -23,6 +33,7 @@ namespace_imports = [
 module = ExtractUtilsModule(
     'bahamut',
     'sony',
+    blob_fixups=blob_fixups,
     namespace_imports=namespace_imports,
     add_firmware_proprietary_file=True,
 )
